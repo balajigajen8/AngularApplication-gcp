@@ -1,10 +1,10 @@
-runtime: python39
+runtime: nodejs18
 
 handlers:
-- url: /
-  static_files: dist/my-angular-app/index.html
-  upload: dist/my-angular-app/index.html
+  - url: /
+    static_files: dist/my-angular-app/index.html
+    upload: dist/my-angular-app/index.html
 
-- url: /(.*)
-  static_files: www/\1
-  upload: www/(.*)
+  - url: /(.*\.(js|css|png|jpg|ico))$
+    static_files: dist/my-angular-app/\1
+    upload: dist/my-angular-app/(.*\.(js|css|png|jpg|ico))
