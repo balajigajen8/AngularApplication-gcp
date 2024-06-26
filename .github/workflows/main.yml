@@ -23,8 +23,7 @@ jobs:
         run: npm install
 
       - name: Lint and test
-        working-directory: ./my-angular-app/
-
+        
       - name: Build Angular app
         working-directory: ./my-angular-app/
         run: npm run build
