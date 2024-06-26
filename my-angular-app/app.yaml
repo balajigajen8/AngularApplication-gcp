@@ -1,14 +1,14 @@
-runtime: nodejs18
+runtime: nodejs18  # Specifies the Node.js runtime version
 
-instance_class: F1
+instance_class: F1  # Specifies the instance class for your app (F1 in this case)
 
 handlers:
-- url: /
-  static_files: dist/my-angular-app/index.html
-  upload: dist/my-angular-app/index.html
+  - url: /  # Maps requests to the root path
+    static_files: dist/my-angular-app/index.html  # Specifies the index.html file in the build output
+    upload: dist/my-angular-app/index.html
 
-- url: /
-  static_dir: dist/my-angular-app
+  - url: /  # Maps requests to the root path
+    static_dir: dist/my-angular-app  # Specifies that all files in dist/my-angular-app are static files
 
-- url: /.*\.(js|css|png|jpg|ico)
-  static_dir: dist/my-angular-app
+  - url: /.*\.(js|css|png|jpg|ico)  # Matches requests for specific file types
+    static_dir: dist/my-angular-app  # Specifies the directory for static files matching the regex pattern
