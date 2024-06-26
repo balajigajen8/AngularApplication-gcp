@@ -1,19 +1,22 @@
-runtime: python27
-api_version: 1
+runtime: python38
+api_version: '1'
 threadsafe: true
+
 handlers:
   - url: /
     static_files: dist/my-angular-app/index.html
     upload: dist/my-angular-app/index.html
-  - url: /
-    static_dir: dist/my-angular-app
+  - url: /(.*)
+    static_files: dist/my-angular-app/\1
+    upload: dist/my-angular-app/(.*)
+
 skip_files:
   - e2e/
   - node_modules/
   - src/
-  - coverage
+  - coverage/
   - ^(.*/)?\..*$
   - ^(.*/)?.*\.json$
   - ^(.*/)?.*\.md$
   - ^(.*/)?.*\.yaml$
-  - ^LICENSE
+  - ^LICENSE$
