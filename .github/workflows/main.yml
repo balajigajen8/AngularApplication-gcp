@@ -26,6 +26,12 @@ jobs:
         working-directory: ./my-angular-app/
         run: npm run build
 
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: dist
+          path: ./my-angular-app/dist
+
       - name: Set up Google Cloud SDK
         uses: google-github-actions/setup-gcloud@v0.2.0
         with:
