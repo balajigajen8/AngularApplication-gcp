@@ -1,0 +1,14 @@
+runtime: nodejs18
+
+instance_class: F1
+
+handlers:
+- url: /
+  static_files: dist/my-angular-app/index.html
+  upload: dist/my-angular-app/index.html
+
+- url: /
+  static_dir: dist/my-angular-app
+
+- url: /.*\.(js|css|png|jpg|ico)
+  static_dir: dist/my-angular-app
