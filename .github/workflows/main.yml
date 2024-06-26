@@ -26,7 +26,7 @@ jobs:
         working-directory: ./my-angular-app/
         run: |
           npm run lint
-          npm test -- --watch=false --no-progress --browsers=ChromeHeadlessCI
+          npm test 
 
       - name: Build Angular app
         working-directory: ./my-angular-app/
