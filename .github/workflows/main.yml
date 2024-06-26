@@ -19,10 +19,13 @@ jobs:
         node-version: '18'
 
     - name: Install dependencies
+      # Specify the working directory where package.json is located
+      working-directory: ./my-angular-app/package.json
       run: npm install
 
     - name: Build Angular app
-      run: npm run build --prod
+      working-directory: ./my-angular-app/package.json
+      run: npm run build 
 
     - name: Authenticate to Google Cloud
       uses: google-github-actions/auth@v1
