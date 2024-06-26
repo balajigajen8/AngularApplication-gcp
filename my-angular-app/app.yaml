@@ -1,14 +1,28 @@
-runtime: nodejs18  # Specifies the Node.js runtime version
+runtime: nodejs18
 
-instance_class: F1  # Specifies the instance class for your app (F1 in this case)
+instance_class: F1
 
 handlers:
-  - url: /  # Maps requests to the root path
-    static_files: dist/my-angular-app/index.html  # Specifies the index.html file in the build output
+  - url: /
+    static_files: dist/my-angular-app/index.html
     upload: dist/my-angular-app/index.html
 
-  - url: /  # Maps requests to the root path
-    static_dir: dist/my-angular-app  # Specifies that all files in dist/my-angular-app are static files
+  - url: /(.*\.js)$  # Match JavaScript files
+    static_files: dist/my-angular-app/\1
+    upload: dist/my-angular-app/(.*\.js)$
 
-  - url: /.*\.(js|css|png|jpg|ico)  # Matches requests for specific file types
-    static_dir: dist/my-angular-app  # Specifies the directory for static files matching the regex pattern
+  - url: /(.*\.css)$  # Match CSS files
+    static_files: dist/my-angular-app/\1
+    upload: dist/my-angular-app/(.*\.css)$
+
+  - url: /(.*\.png)$  # Match PNG files
+    static_files: dist/my-angular-app/\1
+    upload: dist/my-angular-app/(.*\.png)$
+
+  - url: /(.*\.jpg)$  # Match JPG files
+    static_files: dist/my-angular-app/\1
+    upload: dist/my-angular-app/(.*\.jpg)$
+
+  - url: /(.*\.ico)$  # Match ICO files
+    static_files: dist/my-angular-app/\1
+    upload: dist/my-angular-app/(.*\.ico)$
