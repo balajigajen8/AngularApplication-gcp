@@ -20,11 +20,11 @@ jobs:
 
     - name: Install dependencies
       # Specify the working directory where package.json is located
-      working-directory: ./my-angular-app
+      working-directory: ./my-angular-app/
       run: npm install
 
     - name: Build Angular app
-      working-directory: ./my-angular-app
+      working-directory: ./my-angular-app/
       run: npm run build 
 
     - name: Authenticate to Google Cloud
