@@ -36,4 +36,5 @@ jobs:
       uses: google-github-actions/deploy-appengine@v0.2.0
       with:
         project_id: ${{ secrets.GCP_PROJECT_ID }}
+        working-directory: ./my-angular-app/app.yaml
         deliverables: 'app.yaml'
